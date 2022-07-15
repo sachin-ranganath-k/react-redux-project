@@ -11,7 +11,7 @@ const List = () => {
 
   const getData = () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("http://localhost:3001/users")
       .then((response) => {
         dispatch(dataFetch(response.data));
       })
@@ -34,9 +34,9 @@ const List = () => {
         {allData.map((list) => {
           return (
             <tr key={list.id}>
-              <td>{list.userId}</td>
-              <td>{list.title}</td>
-              <td>{list.body}</td>
+              <td>{list.name}</td>
+              <td>{list.email}</td>
+              <td>{list.gender}</td>
             </tr>
           );
         })}
