@@ -27,10 +27,4 @@
       "id": 3
     }
   ],
-  "admin": [
-    {
-      "adminEmail": "sachin@gmail.com",
-      "adminPassword": "12345"
-    }
-  ]
 }
