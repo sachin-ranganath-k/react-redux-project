@@ -1,36 +1,18 @@
 {
   "users": [
     {
-      "name": "Abhi",
-      "email": "abhi@gmail.com",
-      "regno": "DFGER7899K",
-      "city": 1,
-      "gender": "M",
+      "name": "Ranganath",
+      "email": "ranganath@gmail.com",
+      "regno": "2GI13CS435",
+      "mobile": "8660793465",
       "id": 1
     },
     {
       "name": "Sachin",
       "email": "sachin@gmail.com",
-      "regno": "DLUPK0588M",
-      "city": 1,
-      "gender": "M",
-      "dob": "",
+      "regno": "2GI13CS445",
+      "mobile": "9743101575",
       "id": 2
-    },
-    {
-      "name": "SImha",
-      "email": "ss@gmail.com",
-      "regno": "DDFFG7899M",
-      "city": 3,
-      "gender": "M",
-      "dob": "",
-      "id": 3
-    }
-  ],
-  "admin": [
-    {
-      "adminEmail": "sachin@gmail.com",
-      "adminPassword": "12345"
     }
   ]
 }
