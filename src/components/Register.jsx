@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 
 function RegisterStudent() {
   const [inputs, setInputs] = useState({
@@ -9,70 +8,93 @@ function RegisterStudent() {
     studEmail: "",
     studMob: "",
   });
+  const [successMsg, setSuccessMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [fieldsFill, setFieldsFill] = useState(false);
+
   const { studReg, studName, studEmail, studMob } = inputs;
-  //const dispatch=useDispatch();
-  // const [studReg, setStudReg] = useState("");
-  // const [studName, setStudName] = useState("");
-  // const [studEmail, setStudEmail] = useState("");
-  // const [studMob, setStudMob] = useState("");
 
   const handleAllInputs = (e) => {
-    setInputs({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = () => {
+  const apiCall = () => {
     axios
-      .post("http://localhost:3001/users",inputs)
+      .post("http://localhost:3001/users", inputs)
       .then((response) => {
-        console.log("ee",response);
+        setErrorMsg(false);
+        setFieldsFill(false)
+        setSuccessMsg(true)
       })
       .catch((err) => {
-        console.log("err",err);
+        setFieldsFill(false)
+        setSuccessMsg(false)
+        setErrorMsg(true)
       });
   };
 
+  const handleSubmit = () => {
+    if (studReg === "" || studName === "" || studEmail === "" || studMob === "") {
+      setFieldsFill(true)
+    }
+    else {
+      apiCall();
+    }
+  };
+
   return (
-      <div className="container">
-        <div align="center">
-          <h2>Register Student</h2>
-        </div>
-
-        <div className="formContainer">
-          <input
-            type="text"
-            name="studentReg"
-            placeholder="Enter Student Reg"
-            value={studReg}
-            onChange={handleAllInputs}
-          />
-
-          <input
-            type="text"
-            name="studentName"
-            placeholder="Enter Student Name"
-            value={studName}
-            onChange={handleAllInputs}
-          />
-
-          <input
-            type="text"
-            name="studentEmail"
-            placeholder="Enter Student Email"
-            value={studEmail}
-            onChange={handleAllInputs}
-          />
-
-          <input
-            type="text"
-            name="studentMob"
-            placeholder="Enter Student Mob"
-            value={studMob}
-            onChange={handleAllInputs}
-          />
-
-          <input type="button" value="Submit" onClick={handleSubmit} />
-        </div>
+    <div className="container">
+      <div align="center">
+        <h2>Register Student</h2>
       </div>
+
+      <div className="formContainer">
+        {successMsg && <p>Successfuly Registered</p>}
+        {errorMsg && <p>Error..!</p>}
+        {fieldsFill && <p>All Fields are required..!</p>}
+        <input
+          type="text"
+          name="studReg"
+          placeholder="Enter Student Reg"
+          value={studReg}
+          onChange={handleAllInputs}
+          required
+        />
+
+        <input
+          type="text"
+          name="studName"
+          placeholder="Enter Student Name"
+          value={studName}
+          onChange={handleAllInputs}
+          required
+        />
+
+        <input
+          type="email"
+          name="studEmail"
+          placeholder="Enter Student Email"
+          value={studEmail}
+          onChange={handleAllInputs}
+          required
+        />
+
+        <input
+          type="text"
+          name="studMob"
+          placeholder="Enter Student Mob"
+          value={studMob}
+          onChange={handleAllInputs}
+          required
+        />
+
+        <input type="button" value="Submit" onClick={handleSubmit} />
+      </div>
+    </div>
   );
 }
 

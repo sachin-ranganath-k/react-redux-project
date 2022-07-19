@@ -36,10 +36,10 @@ const List = () => {
         {allData.map((list) => {
           return (
             <tr key={list?.id}>
-              <td>{list?.regno}</td>
-              <td>{list?.name}</td>
-              <td>{list?.email}</td>
-              <td>{list?.mobile}</td>
+              <td>{list?.studRegno}</td>
+              <td>{list?.studName}</td>
+              <td>{list?.studEmail}</td>
+              <td>{list?.studMobile}</td>
             </tr>
           );
         })}
