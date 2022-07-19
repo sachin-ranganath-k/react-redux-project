@@ -92,7 +92,7 @@ function RegisterStudent() {
           required
         />
 
-        <input type="button" value="Submit" onClick={handleSubmit} />
+        <input type="button" value="Submit" data-testId ="formSubmitButton" onClick={handleSubmit} />
       </div>
     </div>
   );
