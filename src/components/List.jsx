@@ -35,7 +35,7 @@ const List = () => {
         </tr>
         {allData.map((list) => {
           return (
-            <tr key={list.id}>
+            <tr key={list?.id}>
               <td>{list?.regno}</td>
               <td>{list?.name}</td>
               <td>{list?.email}</td>

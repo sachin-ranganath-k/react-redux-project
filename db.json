@@ -1,18 +1,22 @@
 {
   "users": [
     {
-      "name": "Ranganath",
-      "email": "ranganath@gmail.com",
-      "regno": "2GI13CS435",
-      "mobile": "8660793465",
+      "studName": "Ranganath",
+      "studEmail": "ranganath@gmail.com",
+      "StudRegno": "2GI13CS435",
+      "studMobile": "8660793465",
       "id": 1
     },
     {
-      "name": "Sachin",
-      "email": "sachin@gmail.com",
-      "regno": "2GI13CS445",
-      "mobile": "9743101575",
+      "studName": "Sachin",
+      "studEmail": "sachin@gmail.com",
+      "StudRegno": "2GI13CS445",
+      "studMobile": "9743101575",
       "id": 2
+    },
+    {
+      "studentMob": "9888888999",
+      "id": 3
     }
   ]
 }

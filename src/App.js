@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import List from './components/List';
-import Register from './components/Register';
+import RegisterStudent from './components/Register';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<List />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<RegisterStudent />} />
         </Routes>
       </Router>
     </div>
