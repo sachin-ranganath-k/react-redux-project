@@ -1,4 +1,4 @@
-import { FETCH_DATA, HANDLE_INPUT } from "./actionTypes"
+import { FETCH_DATA } from "./actionTypes"
 
 export const dataFetch=(payload)=>{
     return{
@@ -7,9 +7,9 @@ export const dataFetch=(payload)=>{
     }
 }
 
-// export const handleInput=({name, value})=>{
+// export const resetData=(payload)=>{
 //     return{
-//         type:HANDLE_INPUT,
-//         payload: {name,value}
+//         type:RESET_DATA,
+//         payload
 //     }
 // }

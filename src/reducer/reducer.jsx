@@ -2,10 +2,12 @@ import { FETCH_DATA } from "../action/actionTypes";
 
 const initialState={
     loadData:[],
-// responseData:{
-//     userId:"",
-//     title:"",
-//     body:""
+    
+// emptyData:{
+//     studReg: "",
+//     studName: "",
+//     studEmail: "",
+//     studMob: "",
 // }
 }
 
@@ -17,8 +19,17 @@ const reducer=(state=initialState, action)=>{
                 loadData: action.payload
             }
 
+        // case RESET_DATA:
+        //     return{
+        //         ...state,
+        //         loadData:initialState.emptyData
+        //     }
+
             default: return state;
     }
+
+   
+
 }
 
 export default reducer;

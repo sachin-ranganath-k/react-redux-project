@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function RegisterStudent() {
-  const [inputs, setInputs] = useState({
+
+const [inputs, setInputs] = useState({
     studReg: "",
     studName: "",
     studEmail: "",
@@ -29,7 +31,8 @@ function RegisterStudent() {
         setErrorMsg(false);
         setFieldsFill(false)
         setSuccessMsg(true)
-      })
+        
+     })
       .catch((err) => {
         setFieldsFill(false)
         setSuccessMsg(false)
@@ -49,6 +52,7 @@ function RegisterStudent() {
   return (
     <div className="container">
       <div align="center">
+        <Link to="/">Go Back</Link>
         <h2>Register Student</h2>
       </div>
 
