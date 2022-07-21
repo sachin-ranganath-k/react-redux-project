@@ -25,7 +25,6 @@ const List = () => {
   const deleteStudent=(id)=>{
     axios.delete(`http://localhost:3001/users/${id}`)
     .then((res)=>{
-      console.log('deleted')
       getData()
     })
     .catch(()=>{
@@ -37,7 +36,7 @@ const List = () => {
     <div align="center">
       <input type="button" value="Get Data" onClick={getData} />
       <br />
-      <Link to="/register">Register</Link>
+      <Link to="/">Register</Link>
       <br /><br />
       <table border="2">
         <tbody>

@@ -52,7 +52,9 @@ const [inputs, setInputs] = useState({
   return (
     <div className="container">
       <div align="center">
-        <Link to="/">Go Back</Link>
+        <Link to="/login">Login</Link> 
+        <br />
+        <Link to="/register">Get List</Link>
         <h2>Register Student</h2>
       </div>
 

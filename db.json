@@ -6,6 +6,13 @@
       "studEmail": "sachin@gmail.com",
       "studMob": "8798789878",
       "id": 1
+    },
+    {
+      "studReg": "uu",
+      "studName": "uu",
+      "studEmail": "uu",
+      "studMob": "uu",
+      "id": 2
     }
   ]
 }
