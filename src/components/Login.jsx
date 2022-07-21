@@ -19,10 +19,6 @@ function Login() {
       });
   }, []);
 
-  // useEffect(()=>{
-  //     console.log(allData[0].studReg)
-  // },[])
-
   const [inputs, setInputs] = useState({
     studReg: "",
     studMob: "",
