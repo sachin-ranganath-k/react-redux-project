@@ -6,8 +6,8 @@ import { dataFetch } from "../action/action";
 function Login() {
   const allData = useSelector((state) => state.reducer.loadData);
   const dispatch = useDispatch();
-  const [message, setMessage]=useState(false)
- 
+  const [message, setMessage] = useState(null);
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/users")
@@ -37,17 +37,22 @@ function Login() {
       ...inputs,
       [name]: value,
     });
-   // console.log(inputs);
   };
 
   const login = () => {
-    allData.map((dataa) => {
-      if (studReg === dataa.studReg) {
-        return setMessage(true)
-      } else {
-        setMessage(false)
+    let found;
+    for (let i = 0; i < allData.length; i++) {
+      if (allData[i].studReg === studReg) {
+        found = 1;
+        break;
       }
-    });
+    }
+
+    if (found === 1) {
+      setMessage(true)
+    } else {
+      setMessage(false)
+    }
   };
 
   return (
@@ -73,7 +78,7 @@ function Login() {
         <br />
         <br />
         <input type="button" value="Login" onClick={login} />
-        {message && <p>Success</p>}
+        {message ? <p>Success</p> : <p>Failed</p>}
       </div>
     </div>
   );
