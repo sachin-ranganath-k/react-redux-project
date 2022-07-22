@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dataFetch } from "../action/action";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const allData = useSelector((state) => state.reducer.loadData);
   const dispatch = useDispatch();
-  const [message, setMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -38,16 +40,17 @@ function Login() {
   const login = () => {
     let found;
     for (let i = 0; i < allData.length; i++) {
-      if (allData[i].studReg === studReg) {
+      if (allData[i].studReg === studReg && allData[i].studMob === studMob) {
         found = 1;
+        sessionStorage.setItem("userReg", allData[i].studReg);
         break;
       }
     }
 
     if (found === 1) {
-      setMessage(true)
+      navigate("/userHome");
     } else {
-      setMessage(false)
+      setErrorMessage(true);
     }
   };
 
@@ -74,7 +77,7 @@ function Login() {
         <br />
         <br />
         <input type="button" value="Login" onClick={login} />
-        {message ? <p>Success</p> : <p>Failed</p>}
+        {errorMessage && <p>Invalid Credentials</p>}
       </div>
     </div>
   );

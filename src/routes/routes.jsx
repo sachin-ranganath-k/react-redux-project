@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import List from '../components/List'
 import Login from '../components/Login'
 import RegisterStudent from '../components/Register'
+import UserHome from '../components/userHome'
 
 
 function LinkRoutes() {
@@ -12,6 +13,7 @@ function LinkRoutes() {
           <Route path="/" element={<RegisterStudent />} />
           <Route path="/register" element={<List />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/userHome" element={<UserHome />} />
         </Routes>
       </Router>
   )
