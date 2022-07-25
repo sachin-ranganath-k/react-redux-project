@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import GlobalError from '../components/globalError'
 import List from '../components/List'
 import Login from '../components/Login'
 import RegisterStudent from '../components/Register'
@@ -14,6 +15,7 @@ function LinkRoutes() {
           <Route path="/register" element={<List />} />
           <Route path="/login" element={<Login />} />
           <Route path="/userHome" element={<UserHome />} />
+          <Route path="error" element={<GlobalError />} />
         </Routes>
       </Router>
   )

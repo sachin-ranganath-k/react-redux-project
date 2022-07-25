@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,7 +8,12 @@ import { dataFetch } from "../action/action";
 const List = () => {
   const allData = useSelector((state) => state.reducer.loadData);
   const dispatch = useDispatch();
+  const [visibleData, setVisibleData]=useState(1)
   let sl=1;
+
+  useEffect(()=>{
+    getData();
+  },[])
 
   const getData = () => {
     axios
@@ -32,9 +37,13 @@ const List = () => {
     })
   }
 
+  const loadMore=()=>{
+    setVisibleData((prevData)=>prevData+1)
+  }
+
   return (
     <div align="center">
-      <input type="button" value="Get Data" onClick={getData} />
+      
       <br />
       <Link to="/">Register</Link>
       <br /><br />
@@ -48,7 +57,7 @@ const List = () => {
           <th>Mobile</th>
           <th>Delete</th>
         </tr>
-        {allData.map((list) => {
+        {allData.slice(0,visibleData).map((list) => {
           return (
             <tr key={list?.id}>
               <td>{sl++}</td>
@@ -62,6 +71,8 @@ const List = () => {
         })}
         </tbody>
       </table>
+      <br />
+      <input type="button" value="Load More" onClick={loadMore} />
     </div>
   );
 };
